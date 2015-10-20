@@ -1,5 +1,6 @@
 package nl.roelvandun.setgame;
 
+import java.util.EmptyStackException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +23,10 @@ public class Game {
     public void start() {
         deck.shuffle();
 
-
+        draw3Cards();
+        draw3Cards();
+        draw3Cards();
+        draw3Cards();
     }
 
     public Deck getDeck() {
@@ -33,5 +37,10 @@ public class Game {
         return tableCards;
     }
 
-    public
+    public void draw3Cards() throws EmptyStackException {
+        getTableCards().add(getDeck().draw());
+        getTableCards().add(getDeck().draw());
+        getTableCards().add(getDeck().draw());
+    }
+
 }

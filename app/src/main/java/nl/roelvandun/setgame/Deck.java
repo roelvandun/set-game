@@ -1,6 +1,7 @@
 package nl.roelvandun.setgame;
 
 import java.util.Collections;
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class Deck {
@@ -12,7 +13,6 @@ public class Deck {
             for (int j = 0; j < Card.Amount.values().length; j++) {
                 for (int k = 0; k < Card.Filling.values().length; k++) {
                     for (int l = 0; l < Card.Form.values().length; l++) {
-
                         Card.Color color = Card.Color.values()[i];
                         Card.Amount amount = Card.Amount.values()[j];
                         Card.Filling filling = Card.Filling.values()[k];
@@ -34,7 +34,7 @@ public class Deck {
         Collections.shuffle(cards);
     }
 
-    public Card draw() {
+    public Card draw() throws EmptyStackException {
         return cards.pop();
     }
 }

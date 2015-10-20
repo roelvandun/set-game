@@ -27,7 +27,13 @@ public class Card {
     }
 
     enum Form {
-        DIAMONDS, WAVE, OVAL;
+        DIAMONDS("<>"), WAVE("~"), OVAL("O");
+
+        public final String character;
+
+        Form(String character) {
+            this.character = character;
+        }
     }
 
     @Override
@@ -52,4 +58,54 @@ public class Card {
         result = 31 * result + form.hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        switch (this.color) {
+            case GREEN:
+                sb.append("green");
+                break;
+            case PURPLE:
+                sb.append("purple");
+                break;
+            case RED:
+                sb.append("red");
+                break;
+        }
+
+        sb.append(" \t ");
+
+        switch (this.filling) {
+            case NONE:
+                sb.append("[ ]");
+                break;
+            case HALF:
+                sb.append("[\\]");
+                break;
+            case FULL:
+                sb.append("[*]");
+                break;
+        }
+
+        sb.append(" \t ");
+
+        switch (this.amount) {
+            case ONE:
+                sb.append(this.form.character);
+                break;
+            case TWO:
+                sb.append(this.form.character);
+                sb.append(this.form.character);
+                break;
+            case THREE:
+                sb.append(this.form.character);
+                sb.append(this.form.character);
+                sb.append(this.form.character);
+                break;
+        }
+        return sb.toString();
+    }
+
 }

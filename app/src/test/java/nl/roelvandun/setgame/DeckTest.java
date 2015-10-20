@@ -46,9 +46,4 @@ public class DeckTest {
         assertThat(drawnCard, equalTo(topCard));
     }
 
-    @Test
-    public void draw3_reducesDeckSizeBy3() throws Exception {
-
-
-    }
 }

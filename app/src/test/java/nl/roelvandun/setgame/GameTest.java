@@ -17,8 +17,24 @@ public class GameTest {
     }
 
     @Test
-    public void gameHasADeck() throws Exception {
+    public void game_constructed_hasADeck() throws Exception {
         assertThat(game.getDeck(), notNullValue());
+    }
+
+    @Test
+    public void drawCards_atLeast3InStack_adds3cardsToTable() throws Exception {
+        int initialTableCardsCount = game.getTableCards().size();
+
+        game.draw3Cards();
+
+        int afterDrawingTableCardsCount = game.getTableCards().size();
+
+        assertThat(afterDrawingTableCardsCount, equalTo(initialTableCardsCount + 3));
+    }
+
+    @Test(expected = Exception.class)
+    public void drawCards_emptyStack_throwsException() throws Exception {
+
     }
 
     @Test
@@ -28,9 +44,4 @@ public class GameTest {
         assertThat(game.getTableCards().size(), equalTo(12));
     }
 
-    // start may only be called once
-
-    // deal 3 new cards
-    // - 3 new cards are added to the table && deck.length -= 3
-    // - when stack is empty
 }
