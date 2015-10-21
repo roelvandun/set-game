@@ -115,13 +115,4 @@ public class CardTest {
         assertThat(amountOne.toString().length(), equalTo(5));
     }
 
-    //    @Test
-    public void toStringWorks() throws Exception {
-        Card redNoneOneOvalCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.NONE, Card.Form.OVAL);
-        Card purpleHalfTwoWaveCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.HALF, Card.Form.WAVE);
-
-        assertThat(redNoneOneOvalCard.toString(), equalTo("red \t [ ] \t O"));
-        assertThat(purpleHalfTwoWaveCard.toString(), equalTo("purple \t [\\] \t ~~"));
-        assertThat(card.toString(), equalTo("green \t [*] \t <><><>"));
-    }
 }
