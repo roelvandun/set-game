@@ -53,57 +53,57 @@ public class GameTest {
     }
 
     @Test
-    public void haveSameAmount_sameAmount_true() throws Exception {
+    public void allSameAmount_sameAmount_true() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card p1fdCard = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertTrue(game.haveSameCount(g1nwCard, r1hoCard, p1fdCard));
+        assertTrue(game.allSameCount(g1nwCard, r1hoCard, p1fdCard));
     }
 
     @Test
-    public void haveSameCount_oneDiffers_false() throws Exception {
+    public void allSameAmount_oneDiffers_false() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertFalse(game.haveSameCount(g1nwCard, r1hoCard, p2fdCard));
+        assertFalse(game.allSameCount(g1nwCard, r1hoCard, p2fdCard));
     }
 
     @Test
-    public void haveSameCount_twoDiffer_false() throws Exception {
+    public void allSameAmount_twoDiffer_false() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r3hoCard = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.HALF, Card.Form.OVAL);
         Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertFalse(game.haveSameCount(g1nwCard, r3hoCard, p2fdCard));
+        assertFalse(game.allSameCount(g1nwCard, r3hoCard, p2fdCard));
     }
 
     @Test
-    public void haveSameColor_sameColor_true() throws Exception {
+    public void allSameColor_sameColor_true() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card g1hoCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card g1fdCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertTrue(game.haveSameColor(g1nwCard, g1hoCard, g1fdCard));
+        assertTrue(game.allSameColor(g1nwCard, g1hoCard, g1fdCard));
     }
 
     @Test
-    public void haveSameColor_oneDiffers_false() throws Exception {
+    public void allSameColor_oneDiffers_false() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card g1fdCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertFalse(game.haveSameColor(g1nwCard, r1hoCard, g1fdCard));
+        assertFalse(game.allSameColor(g1nwCard, r1hoCard, g1fdCard));
     }
 
     @Test
-    public void haveSameColor_twoDiffer_false() throws Exception {
+    public void allSameColor_twoDiffer_false() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card p1fdCard = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertFalse(game.haveSameColor(g1nwCard, r1hoCard, p1fdCard));
+        assertFalse(game.allSameColor(g1nwCard, r1hoCard, p1fdCard));
     }
 
 }
