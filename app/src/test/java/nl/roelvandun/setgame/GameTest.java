@@ -7,7 +7,9 @@ import java.util.EmptyStackException;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class GameTest {
 
@@ -48,6 +50,33 @@ public class GameTest {
         game.start();
 
         assertThat(game.getTableCards().size(), equalTo(12));
+    }
+
+    @Test
+    public void haveSameAmount_sameAmount_true() throws Exception {
+        Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
+        Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
+        Card p1fdCard = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
+
+        assertTrue(game.haveSameCount(g1nwCard, r1hoCard, p1fdCard));
+    }
+
+    @Test
+    public void haveSameCount_oneDiffers_false() throws Exception {
+        Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
+        Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
+        Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
+
+        assertFalse(game.haveSameCount(g1nwCard, r1hoCard, p2fdCard));
+    }
+
+    @Test
+    public void haveSameCount_twoDiffer_false() throws Exception {
+        Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
+        Card r3hoCard = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.HALF, Card.Form.OVAL);
+        Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
+
+        assertFalse(game.haveSameCount(g1nwCard, r3hoCard, p2fdCard));
     }
 
 }
