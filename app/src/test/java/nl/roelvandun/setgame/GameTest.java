@@ -52,8 +52,9 @@ public class GameTest {
         assertThat(game.getTableCards().size(), equalTo(12));
     }
 
+    //region AMOUNT
     @Test
-    public void allSameAmount_sameAmount_true() throws Exception {
+    public void allSameAmount_allSame_true() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card p1fdCard = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
@@ -62,7 +63,7 @@ public class GameTest {
     }
 
     @Test
-    public void allSameAmount_oneDiffers_false() throws Exception {
+    public void allSameAmount_1differs_false() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
@@ -71,7 +72,7 @@ public class GameTest {
     }
 
     @Test
-    public void allSameAmount_twoDiffer_false() throws Exception {
+    public void allSameAmount_2differ_false() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r3hoCard = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.HALF, Card.Form.OVAL);
         Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
@@ -79,6 +80,36 @@ public class GameTest {
         assertFalse(game.allSameAmount(g1nwCard, r3hoCard, p2fdCard));
     }
 
+    @Test
+    public void allDifferentAmount_allDiffer_true() throws Exception {
+        Card g1nw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
+        Card g2nw = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.NONE, Card.Form.WAVE);
+        Card g3nw = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.NONE, Card.Form.WAVE);
+
+        assertTrue(game.allDifferentAmount(g1nw, g2nw, g3nw));
+    }
+
+    @Test
+    public void allDifferentAmount_2same_false() throws Exception {
+        Card g1nw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
+        Card g1hw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.HALF, Card.Form.WAVE);
+        Card g3nw = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.NONE, Card.Form.WAVE);
+
+        assertFalse(game.allDifferentAmount(g1nw, g1hw, g3nw));
+    }
+
+    @Test
+    public void allDifferentAmount_3same_false() throws Exception {
+        Card g1nw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
+        Card g1hw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.HALF, Card.Form.WAVE);
+        Card g1fw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.WAVE);
+
+        assertFalse(game.allDifferentAmount(g1nw, g1hw, g1fw));
+    }
+
+    //endregion
+
+    //region COLOR
     @Test
     public void allSameColor_sameColor_true() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);

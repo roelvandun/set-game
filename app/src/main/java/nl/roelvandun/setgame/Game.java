@@ -51,4 +51,8 @@ public class Game {
         return cardOne.color.equals(cardTwo.color) && cardOne.color.equals(cardThree.color);
     }
 
+    public boolean allDifferentAmount(Card cardOne, Card cardTwo, Card cardThree) {
+        return !cardOne.amount.equals(cardTwo.amount) && !cardOne.amount.equals(cardThree.amount) && !cardTwo.amount.equals(cardThree.amount);
+    }
+
 }
