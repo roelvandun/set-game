@@ -43,10 +43,6 @@ public class Game {
         getTableCards().add(getDeck().draw());
     }
 
-    public boolean allSameAmount(Card cardOne, Card cardTwo, Card cardThree) {
-        return allSameCharacteristic(Card.Amount.class, cardOne, cardTwo, cardThree);
-    }
-
     public boolean allSameColor(Card cardOne, Card cardTwo, Card cardThree) {
         return allSameCharacteristic(Card.Color.class, cardOne, cardTwo, cardThree);
     }

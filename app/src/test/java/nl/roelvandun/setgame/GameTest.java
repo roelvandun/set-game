@@ -59,7 +59,7 @@ public class GameTest {
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card p1fdCard = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertTrue(game.allSameAmount(g1nwCard, r1hoCard, p1fdCard));
+        assertTrue(game.allSameCharacteristic(Card.Amount.class, g1nwCard, r1hoCard, p1fdCard));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class GameTest {
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertFalse(game.allSameAmount(g1nwCard, r1hoCard, p2fdCard));
+        assertFalse(game.allSameCharacteristic(Card.Amount.class, g1nwCard, r1hoCard, p2fdCard));
     }
 
     @Test
@@ -77,7 +77,7 @@ public class GameTest {
         Card r3hoCard = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.HALF, Card.Form.OVAL);
         Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertFalse(game.allSameAmount(g1nwCard, r3hoCard, p2fdCard));
+        assertFalse(game.allSameCharacteristic(Card.Amount.class, g1nwCard, r3hoCard, p2fdCard));
     }
 
     @Test
@@ -106,7 +106,6 @@ public class GameTest {
 
         assertFalse(game.allDifferentAmount(g1nw, g1hw, g1fw));
     }
-
     //endregion
 
     //region COLOR
