@@ -43,33 +43,4 @@ public class Game {
         getTableCards().add(getDeck().draw());
     }
 
-    public boolean allSameCharacteristic(Class<? extends Card.Characteristic> characteristic, Card card1, Card card2, Card card3) {
-        Card.Characteristic characteristic1 = card1.getCharacteristics().get(characteristic);
-        Card.Characteristic characteristic2 = card2.getCharacteristics().get(characteristic);
-        Card.Characteristic characteristic3 = card3.getCharacteristics().get(characteristic);
-
-        return characteristic1.equals(characteristic2) && characteristic1.equals(characteristic3);
-    }
-
-    public boolean allDifferentCharacteristic(Class<? extends Card.Characteristic> characteristic, Card card1, Card card2, Card card3) {
-        Card.Characteristic characteristic1 = card1.getCharacteristics().get(characteristic);
-        Card.Characteristic characteristic2 = card2.getCharacteristics().get(characteristic);
-        Card.Characteristic characteristic3 = card3.getCharacteristics().get(characteristic);
-
-        return !characteristic1.equals(characteristic2) && !characteristic1.equals(characteristic3) && !characteristic2.equals(characteristic3);
-    }
-
-    public boolean isSet(Card card1, Card card2, Card card3) {
-        boolean amountValid = allSameCharacteristic(Card.Amount.class, card1, card2, card3) ||
-                allDifferentCharacteristic(Card.Amount.class, card1, card2, card3);
-        boolean colorValid = allSameCharacteristic(Card.Color.class, card1, card2, card3) ||
-                allDifferentCharacteristic(Card.Color.class, card1, card2, card3);
-        boolean fillingValid = allSameCharacteristic(Card.Filling.class, card1, card2, card3) ||
-                allDifferentCharacteristic(Card.Filling.class, card1, card2, card3);
-        boolean formValid = allSameCharacteristic(Card.Form.class, card1, card2, card3) ||
-                allDifferentCharacteristic(Card.Form.class, card1, card2, card3);
-
-        return amountValid && colorValid && fillingValid && formValid;
-    }
-
 }
