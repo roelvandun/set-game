@@ -150,12 +150,12 @@ public class SetCheckerTest {
 
     @Test
     public void containsSet_6cards1set_thatSet() throws Exception {
-        Card setCard1 = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.FULL, Card.Form.OVAL);
+        Card setCard1 = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.HALF, Card.Form.DIAMONDS);
         Card setCard2 = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
-        Card setCard3 = new Card(Card.Color.RED, Card.Amount.TWO, Card.Filling.FULL, Card.Form.WAVE);
-        Card randomCard1 = new Card(Card.Color.RED, Card.Amount.TWO, Card.Filling.FULL, Card.Form.WAVE);
-        Card randomCard2 = new Card(Card.Color.RED, Card.Amount.TWO, Card.Filling.FULL, Card.Form.WAVE);
-        Card randomCard3 = new Card(Card.Color.RED, Card.Amount.TWO, Card.Filling.FULL, Card.Form.WAVE);
+        Card setCard3 = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.NONE, Card.Form.DIAMONDS);
+        Card randomCard1 = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card randomCard2 = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.HALF, Card.Form.OVAL);
+        Card randomCard3 = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.FULL, Card.Form.WAVE);
 
         tableCards.add(setCard1);
         tableCards.add(setCard2);
