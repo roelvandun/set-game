@@ -43,7 +43,7 @@ public class Game {
         getTableCards().add(getDeck().draw());
     }
 
-    public boolean allSameCount(Card cardOne, Card cardTwo, Card cardThree) {
+    public boolean allSameAmount(Card cardOne, Card cardTwo, Card cardThree) {
         return cardOne.amount.equals(cardTwo.amount) && cardOne.amount.equals(cardThree.amount);
     }
 
