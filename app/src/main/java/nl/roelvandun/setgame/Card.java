@@ -69,7 +69,7 @@ public class Card {
     }
 
     enum Form implements Characteristic {
-        DIAMONDS(FORM_DIAMOND_CHARACTER), WAVE(FORM_WAVE_CHARACTER), OVAL(FORM_OVAL_CHARACTER);
+        DIAMOND(FORM_DIAMOND_CHARACTER), WAVE(FORM_WAVE_CHARACTER), OVAL(FORM_OVAL_CHARACTER);
 
         public final String character;
 

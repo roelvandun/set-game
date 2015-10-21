@@ -14,19 +14,19 @@ public class CardTest {
 
     @Test
     public void equalsWorks() throws Exception {
-        Card identicalCard =  new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card identicalCard =  new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMOND);
 
         assertThat(card, equalTo(identicalCard));
     }
 
     @Before
     public void setUp() throws Exception {
-        card = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        card = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMOND);
     }
 
     @Test
     public void hashCodeWorks() throws Exception {
-        Card identicalCard =  new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card identicalCard =  new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMOND);
 
         assertThat(card.hashCode(), equalTo(identicalCard.hashCode()));
     }
@@ -75,7 +75,7 @@ public class CardTest {
 
     @Test
     public void toString_oneDiamond() throws Exception {
-        Card oneDiamondCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card oneDiamondCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMOND);
 
         assertThat(oneDiamondCard.toString(), endsWith(Card.FORM_DIAMOND_CHARACTER));
     }
