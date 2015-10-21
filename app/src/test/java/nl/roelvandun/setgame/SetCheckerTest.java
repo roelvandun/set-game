@@ -10,6 +10,7 @@ import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.junit.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class SetCheckerTest {
@@ -167,4 +168,22 @@ public class SetCheckerTest {
         assertThat(setChecker.containsSet(tableCards), hasItems(setCard1, setCard2, setCard3));
     }
 
+    @Test
+    public void containsSet_6cards0sets_null() throws Exception {
+        Card card1 = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.NONE, Card.Form.DIAMONDS);
+        Card card2 = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.HALF, Card.Form.DIAMONDS);
+        Card card3 = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card card4 = new Card(Card.Color.RED, Card.Amount.TWO, Card.Filling.HALF, Card.Form.OVAL);
+        Card card5 = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.WAVE);
+        Card card6 = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
+
+        tableCards.add(card1);
+        tableCards.add(card2);
+        tableCards.add(card3);
+        tableCards.add(card4);
+        tableCards.add(card5);
+        tableCards.add(card6);
+
+        assertNull(setChecker.containsSet(tableCards));
+    }
 }
