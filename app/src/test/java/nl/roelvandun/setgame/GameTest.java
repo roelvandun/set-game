@@ -3,6 +3,8 @@ package nl.roelvandun.setgame;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.EmptyStackException;
+
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
@@ -32,9 +34,13 @@ public class GameTest {
         assertThat(afterDrawingTableCardsCount, equalTo(initialTableCardsCount + 3));
     }
 
-    @Test(expected = Exception.class)
+    @Test(expected = EmptyStackException.class)
     public void drawCards_emptyStack_throwsException() throws Exception {
+        final int ONE_TOO_MUCH = DeckTest.FULL_STACK_SIZE / 3 + 1;
 
+        for (int i = 0; i < ONE_TOO_MUCH; i++) {
+            game.draw3Cards();
+        }
     }
 
     @Test
