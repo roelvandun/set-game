@@ -12,6 +12,7 @@ import static org.junit.Assert.assertThat;
 
 public class DeckTest {
 
+    public static final int FULL_STACK_SIZE = 81;
     private List<Card> cards;
     private Deck deck;
 
@@ -23,7 +24,7 @@ public class DeckTest {
 
     @Test
     public void constructor_creates81cards() {
-        assertThat(cards.size(), equalTo(81));
+        assertThat(cards.size(), equalTo(FULL_STACK_SIZE));
     }
 
     @Test
