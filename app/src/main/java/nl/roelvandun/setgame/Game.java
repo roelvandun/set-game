@@ -44,15 +44,23 @@ public class Game {
     }
 
     public boolean allSameAmount(Card cardOne, Card cardTwo, Card cardThree) {
-        return cardOne.amount.equals(cardTwo.amount) && cardOne.amount.equals(cardThree.amount);
+        return allSameCharacteristic(Card.Amount.class, cardOne, cardTwo, cardThree);
     }
 
     public boolean allSameColor(Card cardOne, Card cardTwo, Card cardThree) {
-        return cardOne.color.equals(cardTwo.color) && cardOne.color.equals(cardThree.color);
+        return allSameCharacteristic(Card.Color.class, cardOne, cardTwo, cardThree);
     }
 
     public boolean allDifferentAmount(Card cardOne, Card cardTwo, Card cardThree) {
         return !cardOne.amount.equals(cardTwo.amount) && !cardOne.amount.equals(cardThree.amount) && !cardTwo.amount.equals(cardThree.amount);
+    }
+
+    public boolean allSameCharacteristic(Class<? extends Card.Characteristic> characteristic, Card cardOne, Card cardTwo, Card cardThree) {
+        Card.Characteristic one = cardOne.getCharacteristics().get(characteristic);
+        Card.Characteristic two = cardTwo.getCharacteristics().get(characteristic);
+        Card.Characteristic three = cardThree.getCharacteristics().get(characteristic);
+
+        return one.equals(two) && one.equals(three);
     }
 
 }

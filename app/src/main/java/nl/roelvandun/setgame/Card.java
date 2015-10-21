@@ -1,6 +1,12 @@
 package nl.roelvandun.setgame;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Card {
+
+    private final Map<Class<? extends Characteristic>, Characteristic> characteristics;
 
     public final Amount amount;
     public final Color color;
@@ -12,21 +18,32 @@ public class Card {
         this.amount = amount;
         this.filling = filling;
         this.form = form;
-    }
 
-    enum Amount {
+        characteristics = new HashMap<>(4);
+        characteristics.put(Color.class, color);
+        characteristics.put(Amount.class, amount);
+        characteristics.put(Filling.class, filling);
+        characteristics.put(Form.class, form);
+    }
+    /**
+     * Marker interface
+     */
+    public interface Characteristic {
+
+    }
+    enum Amount implements Characteristic {
         ONE, TWO, THREE;
-    }
 
-    enum Color {
+    }
+    enum Color implements Characteristic {
         RED, GREEN, PURPLE;
-    }
 
-    enum Filling {
+    }
+    enum Filling implements Characteristic {
         NONE, HALF, FULL;
-    }
 
-    enum Form {
+    }
+    enum Form implements Characteristic {
         DIAMONDS("<>"), WAVE("~"), OVAL("O");
 
         public final String character;
@@ -34,8 +51,8 @@ public class Card {
         Form(String character) {
             this.character = character;
         }
-    }
 
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -106,6 +123,10 @@ public class Card {
                 break;
         }
         return sb.toString();
+    }
+
+    public Map<Class<? extends Characteristic>, Characteristic> getCharacteristics() {
+        return Collections.unmodifiableMap(characteristics);
     }
 
 }
