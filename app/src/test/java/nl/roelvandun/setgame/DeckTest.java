@@ -29,7 +29,7 @@ public class DeckTest {
 
     @Test
     public void randomlyChosenCardExistsInDeck() {
-        Card card = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card card = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMOND);
 
         assertThat(cards, hasItem(card));
     }

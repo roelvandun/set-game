@@ -28,7 +28,7 @@ public class SetCheckerTest {
     public void isSet_3same1differ_true() throws Exception {
         Card g1nw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card g1no = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.OVAL);
-        Card g1nd = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.DIAMONDS);
+        Card g1nd = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.DIAMOND);
 
         assertTrue(setChecker.isSet(g1nw, g1no, g1nd));
     }
@@ -37,7 +37,7 @@ public class SetCheckerTest {
     public void isSet_1fault_false() throws Exception {
         Card g1nw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card g2no = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.NONE, Card.Form.OVAL);
-        Card g2nd = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.NONE, Card.Form.DIAMONDS);
+        Card g2nd = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.NONE, Card.Form.DIAMOND);
 
         assertFalse(setChecker.isSet(g1nw, g2no, g2nd));
     }
@@ -47,7 +47,7 @@ public class SetCheckerTest {
     public void allSameAmount_allSame_true() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
-        Card p1fdCard = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card p1fdCard = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMOND);
 
         assertTrue(setChecker.allSameCharacteristic(Card.Amount.class, g1nwCard, r1hoCard, p1fdCard));
     }
@@ -56,7 +56,7 @@ public class SetCheckerTest {
     public void allSameAmount_1differs_false() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
-        Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMOND);
 
         assertFalse(setChecker.allSameCharacteristic(Card.Amount.class, g1nwCard, r1hoCard, p2fdCard));
     }
@@ -65,7 +65,7 @@ public class SetCheckerTest {
     public void allSameAmount_2differ_false() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r3hoCard = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.HALF, Card.Form.OVAL);
-        Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card p2fdCard = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMOND);
 
         assertFalse(setChecker.allSameCharacteristic(Card.Amount.class, g1nwCard, r3hoCard, p2fdCard));
     }
@@ -103,7 +103,7 @@ public class SetCheckerTest {
     public void allSameColor_sameColor_true() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card g1hoCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
-        Card g1fdCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card g1fdCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMOND);
 
         assertTrue(setChecker.allSameCharacteristic(Card.Color.class, g1nwCard, g1hoCard, g1fdCard));
     }
@@ -112,7 +112,7 @@ public class SetCheckerTest {
     public void allSameColor_oneDiffers_false() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
-        Card g1fdCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card g1fdCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMOND);
 
         assertFalse(setChecker.allSameCharacteristic(Card.Color.class, g1nwCard, r1hoCard, g1fdCard));
     }
@@ -121,7 +121,7 @@ public class SetCheckerTest {
     public void allSameColor_twoDiffer_false() throws Exception {
         Card g1nwCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
-        Card p1fdCard = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card p1fdCard = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMOND);
 
         assertFalse(setChecker.allSameCharacteristic(Card.Color.class, g1nwCard, r1hoCard, p1fdCard));
     }
@@ -139,7 +139,7 @@ public class SetCheckerTest {
     @Test
     public void containsSet_3cards1set_thatSet() throws Exception {
         Card setCard1 = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.FULL, Card.Form.OVAL);
-        Card setCard2 = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card setCard2 = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMOND);
         Card setCard3 = new Card(Card.Color.RED, Card.Amount.TWO, Card.Filling.FULL, Card.Form.WAVE);
 
         tableCards.add(setCard1);
@@ -151,10 +151,10 @@ public class SetCheckerTest {
 
     @Test
     public void containsSet_6cards1set_thatSet() throws Exception {
-        Card setCard1 = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.HALF, Card.Form.DIAMONDS);
-        Card setCard2 = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
-        Card setCard3 = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.NONE, Card.Form.DIAMONDS);
-        Card randomCard1 = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card setCard1 = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.HALF, Card.Form.DIAMOND);
+        Card setCard2 = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMOND);
+        Card setCard3 = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.NONE, Card.Form.DIAMOND);
+        Card randomCard1 = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.FULL, Card.Form.DIAMOND);
         Card randomCard2 = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.HALF, Card.Form.OVAL);
         Card randomCard3 = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.FULL, Card.Form.WAVE);
 
@@ -170,9 +170,9 @@ public class SetCheckerTest {
 
     @Test
     public void containsSet_6cards0sets_null() throws Exception {
-        Card card1 = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.NONE, Card.Form.DIAMONDS);
-        Card card2 = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.HALF, Card.Form.DIAMONDS);
-        Card card3 = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMONDS);
+        Card card1 = new Card(Card.Color.RED, Card.Amount.THREE, Card.Filling.NONE, Card.Form.DIAMOND);
+        Card card2 = new Card(Card.Color.PURPLE, Card.Amount.TWO, Card.Filling.HALF, Card.Form.DIAMOND);
+        Card card3 = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.FULL, Card.Form.DIAMOND);
         Card card4 = new Card(Card.Color.RED, Card.Amount.TWO, Card.Filling.HALF, Card.Form.OVAL);
         Card card5 = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.WAVE);
         Card card6 = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
