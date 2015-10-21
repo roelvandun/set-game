@@ -56,11 +56,11 @@ public class Game {
     }
 
     public boolean allSameCharacteristic(Class<? extends Card.Characteristic> characteristic, Card cardOne, Card cardTwo, Card cardThree) {
-        Card.Characteristic one = cardOne.getCharacteristics().get(characteristic);
-        Card.Characteristic two = cardTwo.getCharacteristics().get(characteristic);
-        Card.Characteristic three = cardThree.getCharacteristics().get(characteristic);
+        Card.Characteristic characteristic1 = cardOne.getCharacteristics().get(characteristic);
+        Card.Characteristic characteristic2 = cardTwo.getCharacteristics().get(characteristic);
+        Card.Characteristic characteristic3 = cardThree.getCharacteristics().get(characteristic);
 
-        return one.equals(two) && one.equals(three);
+        return characteristic1.equals(characteristic2) && characteristic1.equals(characteristic3);
     }
 
 }
