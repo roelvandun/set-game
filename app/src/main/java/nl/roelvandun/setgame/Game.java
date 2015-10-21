@@ -43,8 +43,12 @@ public class Game {
         getTableCards().add(getDeck().draw());
     }
 
-
     public boolean haveSameCount(Card cardOne, Card cardTwo, Card cardThree) {
         return cardOne.amount.equals(cardTwo.amount) && cardOne.amount.equals(cardThree.amount);
     }
+
+    public boolean haveSameColor(Card cardOne, Card cardTwo, Card cardThree) {
+        return cardOne.color.equals(cardTwo.color) && cardOne.color.equals(cardThree.color);
+    }
+
 }
