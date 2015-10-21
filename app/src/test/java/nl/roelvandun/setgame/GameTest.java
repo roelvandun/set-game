@@ -135,5 +135,6 @@ public class GameTest {
 
         assertFalse(game.allSameCharacteristic(Card.Color.class, g1nwCard, r1hoCard, p1fdCard));
     }
+    //endregion
 
 }
