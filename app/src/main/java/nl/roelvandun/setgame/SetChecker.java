@@ -1,9 +1,13 @@
 package nl.roelvandun.setgame;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SetChecker {
+
+    private static final String TAG = SetChecker.class.getSimpleName();
 
     public boolean allSameCharacteristic(Class<? extends Card.Characteristic> characteristic, Card card1, Card card2, Card card3) {
         Card.Characteristic characteristic1 = card1.getCharacteristics().get(characteristic);
@@ -22,6 +26,8 @@ public class SetChecker {
     }
 
     public boolean isSet(Card card1, Card card2, Card card3) {
+        Log.d(TAG, "checking " + card1 + ", " + card2 + ", " + card3);
+
         boolean amountValid = allSameCharacteristic(Card.Amount.class, card1, card2, card3) ||
                 allDifferentCharacteristic(Card.Amount.class, card1, card2, card3);
         boolean colorValid = allSameCharacteristic(Card.Color.class, card1, card2, card3) ||
