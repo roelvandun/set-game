@@ -43,20 +43,20 @@ public class Game {
         getTableCards().add(getDeck().draw());
     }
 
-    public boolean allSameColor(Card cardOne, Card cardTwo, Card cardThree) {
-        return allSameCharacteristic(Card.Color.class, cardOne, cardTwo, cardThree);
-    }
-
-    public boolean allDifferentAmount(Card cardOne, Card cardTwo, Card cardThree) {
-        return !cardOne.amount.equals(cardTwo.amount) && !cardOne.amount.equals(cardThree.amount) && !cardTwo.amount.equals(cardThree.amount);
-    }
-
     public boolean allSameCharacteristic(Class<? extends Card.Characteristic> characteristic, Card cardOne, Card cardTwo, Card cardThree) {
         Card.Characteristic characteristic1 = cardOne.getCharacteristics().get(characteristic);
         Card.Characteristic characteristic2 = cardTwo.getCharacteristics().get(characteristic);
         Card.Characteristic characteristic3 = cardThree.getCharacteristics().get(characteristic);
 
         return characteristic1.equals(characteristic2) && characteristic1.equals(characteristic3);
+    }
+
+    public boolean allDifferentCharacteristic(Class<? extends Card.Characteristic> characteristic, Card cardOne, Card cardTwo, Card cardThree) {
+        Card.Characteristic characteristic1 = cardOne.getCharacteristics().get(characteristic);
+        Card.Characteristic characteristic2 = cardTwo.getCharacteristics().get(characteristic);
+        Card.Characteristic characteristic3 = cardThree.getCharacteristics().get(characteristic);
+
+        return !characteristic1.equals(characteristic2) && !characteristic1.equals(characteristic3) && !characteristic2.equals(characteristic3);
     }
 
 }

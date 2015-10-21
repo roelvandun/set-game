@@ -86,7 +86,7 @@ public class GameTest {
         Card g2nw = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.NONE, Card.Form.WAVE);
         Card g3nw = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.NONE, Card.Form.WAVE);
 
-        assertTrue(game.allDifferentAmount(g1nw, g2nw, g3nw));
+        assertTrue(game.allDifferentCharacteristic(Card.Amount.class, g1nw, g2nw, g3nw));
     }
 
     @Test
@@ -95,7 +95,7 @@ public class GameTest {
         Card g1hw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.HALF, Card.Form.WAVE);
         Card g3nw = new Card(Card.Color.GREEN, Card.Amount.THREE, Card.Filling.NONE, Card.Form.WAVE);
 
-        assertFalse(game.allDifferentAmount(g1nw, g1hw, g3nw));
+        assertFalse(game.allDifferentCharacteristic(Card.Amount.class, g1nw, g1hw, g3nw));
     }
 
     @Test
@@ -104,7 +104,7 @@ public class GameTest {
         Card g1hw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.HALF, Card.Form.WAVE);
         Card g1fw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.WAVE);
 
-        assertFalse(game.allDifferentAmount(g1nw, g1hw, g1fw));
+        assertFalse(game.allDifferentCharacteristic(Card.Amount.class, g1nw, g1hw, g1fw));
     }
     //endregion
 
@@ -115,7 +115,7 @@ public class GameTest {
         Card g1hoCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card g1fdCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertTrue(game.allSameColor(g1nwCard, g1hoCard, g1fdCard));
+        assertTrue(game.allSameCharacteristic(Card.Color.class, g1nwCard, g1hoCard, g1fdCard));
     }
 
     @Test
@@ -124,7 +124,7 @@ public class GameTest {
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card g1fdCard = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertFalse(game.allSameColor(g1nwCard, r1hoCard, g1fdCard));
+        assertFalse(game.allSameCharacteristic(Card.Color.class, g1nwCard, r1hoCard, g1fdCard));
     }
 
     @Test
@@ -133,7 +133,7 @@ public class GameTest {
         Card r1hoCard = new Card(Card.Color.RED, Card.Amount.ONE, Card.Filling.HALF, Card.Form.OVAL);
         Card p1fdCard = new Card(Card.Color.PURPLE, Card.Amount.ONE, Card.Filling.FULL, Card.Form.DIAMONDS);
 
-        assertFalse(game.allSameColor(g1nwCard, r1hoCard, p1fdCard));
+        assertFalse(game.allSameCharacteristic(Card.Color.class, g1nwCard, r1hoCard, p1fdCard));
     }
 
 }
