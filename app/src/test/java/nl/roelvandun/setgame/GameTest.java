@@ -52,6 +52,24 @@ public class GameTest {
         assertThat(game.getTableCards().size(), equalTo(12));
     }
 
+    @Test
+    public void isSet_3same1differ_true() throws Exception {
+        Card g1nw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
+        Card g1no = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.OVAL);
+        Card g1nd = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.DIAMONDS);
+
+        assertTrue(game.isSet(g1nw, g1no, g1nd));
+    }
+
+    @Test
+    public void isSet_1fault_false() throws Exception {
+        Card g1nw = new Card(Card.Color.GREEN, Card.Amount.ONE, Card.Filling.NONE, Card.Form.WAVE);
+        Card g2no = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.NONE, Card.Form.OVAL);
+        Card g2nd = new Card(Card.Color.GREEN, Card.Amount.TWO, Card.Filling.NONE, Card.Form.DIAMONDS);
+
+        assertFalse(game.isSet(g1nw, g2no, g2nd));
+    }
+
     //region AMOUNT
     @Test
     public void allSameAmount_allSame_true() throws Exception {
