@@ -1,16 +1,20 @@
 package nl.roelvandun.setgame;
 
+import android.content.Context;
+
+import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Game {
 
     private final Deck deck;
-    private Set<Card> tableCards = new HashSet<>();
+    private List<Card> tableCards = new ArrayList<>(81);
 
-    public Game() {
-        this.deck = new Deck();
+    public Game(Context context) {
+        this.deck = new Deck(context);
     }
 
     /**
@@ -33,7 +37,7 @@ public class Game {
         return deck;
     }
 
-    public Set<Card> getTableCards() {
+    public List<Card> getTableCards() {
         return tableCards;
     }
 
@@ -44,11 +48,12 @@ public class Game {
     }
 
     public boolean allSameAmount(Card cardOne, Card cardTwo, Card cardThree) {
-        return cardOne.amount.equals(cardTwo.amount) && cardOne.amount.equals(cardThree.amount);
+        return cardOne.getCardValue().amount == cardTwo.getCardValue().amount
+                && cardOne.getCardValue().amount == cardThree.getCardValue().amount;
     }
 
-    public boolean allSameColor(Card cardOne, Card cardTwo, Card cardThree) {
-        return cardOne.color.equals(cardTwo.color) && cardOne.color.equals(cardThree.color);
-    }
+//    public boolean allSameColor(Card cardOne, Card cardTwo, Card cardThree) {
+//        return cardOne.color.equals(cardTwo.color) && cardOne.color.equals(cardThree.color);
+//    }
 
 }
